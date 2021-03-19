@@ -17,25 +17,23 @@ char* string_concat(char* primero, char* segundo){
     int tamanioPrim = strlen(primero);
     int tamanioSeg = strlen(segundo);
 
+
 	int tamanio = tamanioPrim + tamanioSeg;
-	char* concat[tamanio+1];
+    printf("%d y %d y %d\n",tamanioPrim,tamanioSeg, tamanio);
+	char* concat[tamanio];
 
-	int j = 0;
+
 	for(int i=0;i<tamanio;i++){
-		if(i < tamanioPrim){
- 		concat[i] = primero[i];
-		} else {
+    if (i < tamanioPrim){
+	printf("%c\n",primero[i]);
+	concat[i] = primero[i];
+	    }else {
+	        printf("%c\n",segundo[i-tamanioPrim]);
+	        concat[i] = 'a';
+	    }
 
-			concat[i] = segundo[j];
-			j++;
-		}
+
+
 	}
-
-	concat[tamanio+1] = '\0';
-
-
-
-
-
-
+	concat[tamanio] = '\0';
 }
