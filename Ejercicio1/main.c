@@ -5,11 +5,11 @@ char* string_concat(char*, char*);
 
 
 int main () {
-    char a[] ="hola";
-    char b[] = "uno";
+    char* a ="hola";
+    char* b = "uno";
 
 //    char* final = string_concat(a,b);
-    printf("concatencacion: %s \n",(char*) string_concat(a,b));
+    printf("concatencacion: %s \n",string_concat(a,b));
 
 	return 0;
 }
@@ -21,7 +21,7 @@ char* string_concat(char* primero, char* segundo){
 
 	int tamanio = tamanioPrim + tamanioSeg;
     printf("%d y %d y %d\n",tamanioPrim,tamanioSeg, tamanio);
-	char concat[tamanio];
+	char* concat = malloc(tamanio * sizeof(char));
 
 
 	for(int i=0;i<tamanio;i++){
