@@ -20,24 +20,19 @@ char* string_concat(char* primero, char* segundo){
 
 
 	int tamanio = tamanioPrim + tamanioSeg;
-    printf("%d y %d y %d\n",tamanioPrim,tamanioSeg, tamanio);
-	char* concat = malloc(tamanio * sizeof(char));
+	char* concat = malloc(tamanio*sizeof(char));
 
 
 	for(int i=0;i<tamanio;i++){
 
     if (i < tamanioPrim){
-	printf("%c\n",primero[i]);
 	concat[i] = primero[i];
-	    }else {
-	    	printf("%c\n",segundo[i-tamanioPrim]);
-	    	concat[i] = segundo[i-tamanioPrim];
 
+    }else {
+	    	concat[i] = segundo[i-tamanioPrim];
 	    }
 
 	}
-
-
 	concat[tamanio] = '\0';
 
 	return concat;
