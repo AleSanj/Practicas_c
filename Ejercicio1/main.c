@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char* string_concat(char*, char*);
-void string_concat_dinamyc(char*, char*, char**);
+void string_concat_dinamyc(char*,char*, char* (*funcion) (char*,char*));
 
 
 int main () {
@@ -12,9 +12,8 @@ int main () {
     char* b = "uno";
 
     printf("concatencacion: %s \n",string_concat(a,b));
-	printf("asdad1\n");
-    string_concat_dinamyc(a,b,&string_concat); // despues de esta linea de codigo no se ejecuta el printf
-    printf("asdad2\n");
+
+    string_concat_dinamyc(a,b,&string_concat);
 	return 0;
 }
 
@@ -43,10 +42,8 @@ char* string_concat(char* primero, char* segundo){
 
 }
 
-void string_concat_dinamyc(char* primero,char* segundo, char** funcion ){
-	char (*aux) (char*,char*) = &funcion;
-	printf("concatenacion2: %s",aux(primero,segundo));
-	printf("asdad");
+void string_concat_dinamyc(char* primero,char* segundo, char* (*funcion) (char*,char*)){
+	printf("concatenacion2: %s",funcion(primero,segundo));
 
 }
 
