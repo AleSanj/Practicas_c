@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char* string_concat(char*, char*);
+void string_concat_dinamyc(char*, char*, char**);
 
 
 int main () {
+
     char* a ="hola";
     char* b = "uno";
 
-//    char* final = string_concat(a,b);
     printf("concatencacion: %s \n",string_concat(a,b));
-
+	printf("asdad1\n");
+    string_concat_dinamyc(a,b,&string_concat); // despues de esta linea de codigo no se ejecuta el printf
+    printf("asdad2\n");
 	return 0;
 }
 
@@ -37,5 +41,12 @@ char* string_concat(char* primero, char* segundo){
 
 	return concat;
 
+}
+
+void string_concat_dinamyc(char* primero,char* segundo, char** funcion ){
+	char (*aux) (char*,char*) = &funcion;
+	printf("concatenacion2: %s",aux(primero,segundo));
+	printf("asdad");
 
 }
+
